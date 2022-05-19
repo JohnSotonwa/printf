@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include "main.h"
+#include <stddef.h>
 
 /**
 * @_printf: print according to format specifiers %c & %s
@@ -12,7 +13,7 @@ int _printf (const char *format, ...)
 {
     va_list arg;
     int i = 0, j = 0;
-    char *str;
+    char *str = NULL;
 
     va_start (arg, format);
 

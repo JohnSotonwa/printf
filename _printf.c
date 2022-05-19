@@ -1,5 +1,5 @@
-#include <stdarg.h>
 #include "main.h"
+#include <stdarg.h>
 #include <stddef.h>
 
 /**
@@ -27,6 +27,7 @@ int _printf (const char *format, ...)
         {
             if (format[i+1] == 's')
             {
+		i++;
                 str = va_arg(arg, char *);
 
                 while(str[j] != '\0')

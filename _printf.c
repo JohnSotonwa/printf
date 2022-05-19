@@ -11,7 +11,7 @@
 int _printf (const char *format, ...)
 {
     va_list arg;
-    int i, j;
+    int i = 0, j = 0;
     char *str;
 
     va_start (arg, format);
@@ -20,6 +20,7 @@ int _printf (const char *format, ...)
         if (format[i] != '%')
         {
             _putchar(format[i]);
+	    i++;
         }
         else
         {

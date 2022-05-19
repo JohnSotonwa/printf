@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
+#include "main.h"
 
 /**
 * @_printf: print according to format specifiers %c & %s
@@ -41,5 +42,6 @@ int _printf (const char *format, ...)
         i++;
     }
     va_end (arg);
+    return(0);
 }
 

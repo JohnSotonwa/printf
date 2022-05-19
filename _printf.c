@@ -38,6 +38,17 @@ int _printf (const char *format, ...)
                     j++;
                 }
 	    }
+	    else if (format[i+1] == 'c')
+	    {
+		i++;
+		_print_char(va_arg(args, int));
+		i++;
+	    }
+	    else if (format[i+1] == '%')
+	    {
+		i++;
+		_putchar('%');
+	    }
         }
         i++;
     }

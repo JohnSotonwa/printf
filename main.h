@@ -6,5 +6,6 @@
 #include <stdlib.h>
 
 int _printf (const char *format, ...);
+int _print_char(char c);
 
-#endif
+#endif /*_HOLBERTON_H_*/

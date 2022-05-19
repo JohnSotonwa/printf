@@ -15,29 +15,29 @@ int _printf (const char *format, ...)
     char *str;
 
     va_start (arg, format);
+
     while (format[i] != '\0')
     {
         if (format[i] != '%')
         {
             _putchar(format[i]);
-	    i++;
         }
         else
         {
             if (format[i+1] == 's')
             {
-                i++;
                 str = va_arg(arg, char *);
 
                 while(str[j] != '\0')
-                {   _putchar(str[j]);
-                    j++;
+		{
+			_putchar(str[j]);
+			j++;
                 }
 	    }
 	    else if (format[i+1] == 'c')
 	    {
 		i++;
-		_putchar(va_arg(args, int));
+		_putchar(va_arg(arg, int));
 		i++;
 	    }
 	    else if (format[i+1] == '%')

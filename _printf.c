@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
@@ -9,10 +8,6 @@
 * Return: print characters
 */
 
-int _putchar(char c)
-{
-    return(write(1, &c, 1));
-}
 int _printf (const char *format, ...)
 {
     va_list arg;
@@ -47,7 +42,7 @@ int _printf (const char *format, ...)
 	    else if (format[i+1] == '%')
 	    {
 		i++;
-		_putchar('%');
+		_print_char('%');
 	    }
         }
         i++;

@@ -1,6 +1,9 @@
 #include "main.h"
+<<<<<<< HEAD
 #include <stdarg.h>
 #include <stddef.h>
+=======
+>>>>>>> parent of 0ffdda0 (correction of function to print %c %s and %)
 
 /**
 * @_printf: print according to format specifiers %c & %s
@@ -13,7 +16,7 @@ int _printf (const char *format, ...)
 {
     va_list arg;
     int i = 0, j = 0;
-    char *str = NULL;
+    char *str;
 
     va_start (arg, format);
 

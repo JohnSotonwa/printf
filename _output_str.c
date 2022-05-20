@@ -4,12 +4,12 @@
 int _output_str(va_list arg)
 {
 	int j = 0;
-	char *str = va_args(arg, char *);
+	char *str = va_arg(arg, char *);
 
 	while (str[j] != '\0')
 	{
 		_putchar(str[j]);
-		k++;
+		j++;
 	}
 	return (0);
 }

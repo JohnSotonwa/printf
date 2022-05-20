@@ -12,8 +12,7 @@
 int _printf (const char *format, ...)
 {
     va_list arg;
-    int i = 0, j = 0;
-    char *str = NULL;
+    int i = 0;
 
     va_start (arg, format);
 
@@ -28,14 +27,8 @@ int _printf (const char *format, ...)
 		_select_func(format[i+1])(arg);
 		i++;
 	}
-	if (format[i+1] == '%')
-	{
-		i++;
-		_putchar('%');
-	}
         i++;
     }
     va_end (arg);
     return(0);
 }
-

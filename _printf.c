@@ -27,7 +27,7 @@ int _printf (const char *format, ...)
         {
             if (format[i+1] == 's')
             {
-		i++;
+		//i++;
                 str = va_arg(arg, char *);
 
                 while(str[j] != '\0')

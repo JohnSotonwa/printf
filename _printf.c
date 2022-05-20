@@ -25,29 +25,14 @@ int _printf (const char *format, ...)
         }
         else
         {
-            if (format[i+1] == 's')
-            {
+		_select_func(format[i+1])(arg);
 		i++;
-                str = va_arg(arg, char *);
-
-                while(str[j] != '\0')
-		{
-			_putchar(str[j]);
-			j++;
-                }
-	    }
-	    else if (format[i+1] == 'c')
-	    {
-		i++;
-		_putchar(va_arg(arg, int));
-		i++;
-	    }
-	    else if (format[i+1] == '%')
-	    {
+	}
+	if (format[i+1] == '%')
+	{
 		i++;
 		_putchar('%');
-	    }
-        }
+	}
         i++;
     }
     va_end (arg);

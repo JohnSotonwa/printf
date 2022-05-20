@@ -8,7 +8,7 @@ int _output_str(va_list arg)
 
 	while (str[j] != '\0')
 	{
-		_putchar(str[k]);
+		_putchar(str[j]);
 		k++;
 	}
 	return (0);

@@ -40,7 +40,7 @@ int _printf (const char *format, ...)
 	    {
 		i++;
 		_putchar(va_arg(arg, int));
-		i++;
+		//i++;
 	    }
 	    else if (format[i+1] == '%')
 	    {

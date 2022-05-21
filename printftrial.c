@@ -2,18 +2,18 @@
 #include "main.h"
 #include <stdio.h>
 
-int _printf(const char *fmt, ...)
+int _printf(const char *format, ...)
 {
    va_list ap; /* points to each unnamed arg in turn */
    char *p, *sval;
    int ival;
    double dval;
-   va_start(ap, fmt); /* make ap point to 1st unnamed arg */
-   for (p = fmt; *p; p++)
+   va_start(ap, format); /* make ap point to 1st unnamed arg */
+   for (p = format; *p; p++)
    {
       if (*p != '%')
       {
-         putchar(*p);
+         _putchar(*p);
          continue;
       }
       switch (*++p)
@@ -28,14 +28,14 @@ int _printf(const char *fmt, ...)
             break;
         case 's':
             for (sval = va_arg(ap, char *); *sval; sval++)
-            putchar(*sval);
+            _putchar(*sval);
             break;
         case 'c':
             ival = va_arg(ap, int);
             printf("%c", ival);
             break;
         default:
-            putchar(*p);
+            _putchar(*p);
             break;
       }
    }

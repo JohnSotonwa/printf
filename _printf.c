@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
-#include <stdio.h>
 
 /**
 * @_printf: print according to format specifiers %c & %s
@@ -10,43 +9,26 @@
 * Return: print characters
 */
 
-int _printf(const char *format, ...)
+int _printf (const char *format, ...)
 {
-   va_list ap; /* points to each unnamed arg in turn */
-   char *p, *sval;
-   int ival;
-   double dval;
-   va_start(ap, format); /* make ap point to 1st unnamed arg */
-   for (p = format; *p; p++)
-   {
-      if (*p != '%')
-      {
-         _putchar(*p);
-         continue;
-      }
-      switch (*++p)
-      {
-         case 'd':
-            ival = va_arg(ap, int);
-            printf("%d", ival);
-            break;
-        case 'f':
-            dval = va_arg(ap, double);
-            printf("%f", dval);
-            break;
-        case 's':
-            for (sval = va_arg(ap, char *); *sval; sval++)
-            _putchar(*sval);
-            break;
-        case 'c':
-            ival = va_arg(ap, int);
-            printf("%c", ival);
-            break;
-        default:
-            _putchar(*p);
-            break;
-      }
-   }
-   va_end(ap); /* clean up when done */
-	return(0);
+    va_list arg;
+    int i = 0;
+
+    va_start (arg, format);
+
+    while (format[i] != '\0')
+    {
+        if (format[i] != '%')
+        {
+            _putchar(format[i]);
+        }
+        else
+        {
+		_select_func(format[i+1])(arg);
+		i++;
+	}
+        i++;
+    }
+    va_end (arg);
+    return(0);
 }

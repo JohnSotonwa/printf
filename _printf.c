@@ -1,35 +1,34 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stddef.h>
 
 /**
- * _printf - Produces output according to a format
- * @format: Is a character string. The format string
- * is composed of zero or more directives
- *
- * @handler - function that checks if % is found or not
- * @size: Number of Characters printed
- * @_strlen: Length of format to check if nothing was parsed
- *
- * Return: The number of characters printed (excluding
- * the null byte used to end output to strings)
- **/
-int _printf(const char *format, ...)
+* @_printf: print according to format specifiers %c & %s
+* @format: input string
+*
+* Return: print characters
+*/
+
+int _printf (const char *format, ...)
 {
-	int size;
-	va_list args;
-    	
-	if (format == '\0')
-		return (-1);
+    va_list arg;
+    int i = 0;
 
-	size = _strlen(format);
-	if (size <= 0)
-		return (0);
+    va_start (arg, format);
 
-	va_start(args, format);
-	size = handler(format, args);
-
-	_putchar(-1);
-	va_end(args);
-
-	return (size);
-
+    while (format[i] != '\0')
+    {
+        if (format[i] != '%')
+        {
+            _putchar(format[i]);
+        }
+        else
+        {
+		_select_func(format[i+1])(arg);
+		i++;
+	}
+        i++;
+    }
+    va_end (arg);
+    return(0);
 }

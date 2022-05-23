@@ -27,4 +27,4 @@ int print_pointer(va_list list)
 		size += print(p_buff);
 
 	return (size);
-
+}

@@ -14,18 +14,12 @@
  **/
 int _printf(const char *format, ...)
 {
-<<<<<<< HEAD
 	int size;
 	va_list args;
-=======
-    va_list arg;
-    int i = 0;
->>>>>>> 920d21eca5e2c6bed72993ba867cefd0ff1b3580
-
+    	
 	if (format == '\0')
 		return (-1);
 
-<<<<<<< HEAD
 	size = _strlen(format);
 	if (size <= 0)
 		return (0);
@@ -37,21 +31,5 @@ int _printf(const char *format, ...)
 	va_end(args);
 
 	return (size);
-=======
-    while (format[i] != '\0')
-    {
-        if (format[i] != '%')
-        {
-            _putchar(format[i]);
-        }
-        else
-        {
-		_select_func(format[i+1])(arg);
-		i++;
-	}
-        i++;
-    }
-    va_end (arg);
-    return(0);
->>>>>>> 920d21eca5e2c6bed72993ba867cefd0ff1b3580
+
 }

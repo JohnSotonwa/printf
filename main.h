@@ -1,8 +1,20 @@
+<<<<<<< HEAD
 #ifndef MAIN_H
 #define MAIN_H
 
 #include <unistd.h>
 #include <stdarg.h>
+=======
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_H_
+#include <stdarg.h>
+
+int _putchar(char c);
+int _printf (const char *format, ...);
+int _output_char(va_list arg);
+int _output_str(va_list arg);
+int (*_select_func(char c))(va_list);
+>>>>>>> 920d21eca5e2c6bed72993ba867cefd0ff1b3580
 
 /* utils.c */
 int _strlen(const char *);

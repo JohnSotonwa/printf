@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stddef.h>
 
 /**
 * @_printf: print according to format specifiers %c & %s
@@ -11,24 +9,49 @@
 
 int _printf (const char *format, ...)
 {
-    va_list arg;
-    int i = 0;
-
-    va_start (arg, format);
-
-    while (format[i] != '\0')
-    {
-        if (format[i] != '%')
-        {
-            _putchar(format[i]);
-        }
+	va_list args;
+	int i, count;
+	count = 0;
+	if (format == NULL)
+	return (-1);
+	
+	va_start (args, format);
+	
+	while (format[i] != '\0')
+	{
+        	if (format[i] != '%')
+        	{
+            		_putchar(format[i]);
+        	}
         else
         {
-		_select_func(format[i+1])(arg);
-		i++;
+		 if (format[i+1] == 'c')
+		 {
+			 i++;
+			 output_char(args);
+			 count += 1;
+		 }
+		 else if (format[i+1] == 's')
+		 {
+			 i++;
+			 output_str(args);
+			 count += 1;
+		 }
+		 /*else if (format[i+1] == 'd')
+		  * {
+		  * i++;
+		  * output_int(args);
+		  * count += 1;
+		  * }*/
+		 else if (format[i+1] == '%')
+		 {
+			 i++;
+			 _putchar('%');
+			 count += 1;
+		 }
 	}
-        i++;
-    }
-    va_end (arg);
-    return(0);
+	i++;
+	}
+	va_end (arg);
+	return(0);
 }

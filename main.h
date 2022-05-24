@@ -8,8 +8,9 @@
 
 int _putchar(char c);
 int _printf (const char *format, ...);
-int output_char(va_list arg);
-int output_str(va_list arg);
-//int (*_select_func(char c))(va_list);
+int output_char(va_list args);
+int output_str(va_list args);
+/*int (*_select_func(char c))(va_list);*/
+
 
 #endif

@@ -1,10 +1,16 @@
 #include "main.h"
 #include <stdarg.h>
+/**
+ * print_string - Print string
+ * @args: va list.
+ *
+ * Return: 0.
+ */
 
-int output_str(va_list arg)
+int output_str(va_list args)
 {
 	int j = 0;
-	char *str = va_arg(arg, char *);
+	char *str = va_arg(args, char *);
 
 	while (str[j] != '\0')
 	{

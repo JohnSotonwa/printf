@@ -8,7 +8,7 @@
 /* utils.c */
 int _strlen(const char *);
 int print(char *);
-char *_itoa(long int, int);
+char *int_to_string(long int, int);
 
 /* printf.c */
 int _printf(const char *, ...);

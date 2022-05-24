@@ -1,57 +1,30 @@
 #include "main.h"
 
 /**
-* @_printf: print according to format specifiers %c & %s
-* @format: input string
-*
-* Return: print characters
-*/
-
-int _printf (const char *format, ...)
+ * _printf - Produces output according to a format
+ * @format: Is a character string. The format string
+ * is composed of zero or more directives
+ *
+ * Return: The number of characters printed (excluding
+ * the null byte used to end output to strings)
+ **/
+int _printf(const char *format, ...)
 {
+	int size;
 	va_list args;
-	int i, count;
-	count = 0;
+
 	if (format == NULL)
-	return (-1);
-	
-	va_start (args, format);
-	
-	while (format[i] != '\0')
-	{
-        	if (format[i] != '%')
-        	{
-            		_putchar(format[i]);
-        	}
-        else
-        {
-		 if (format[i+1] == 'c')
-		 {
-			 i++;
-			 output_char(args);
-			 count += 1;
-		 }
-		 else if (format[i+1] == 's')
-		 {
-			 i++;
-			 output_str(args);
-			 count += 1;
-		 }
-		 /*else if (format[i+1] == 'd')
-		  * {
-		  * i++;
-		  * output_int(args);
-		  * count += 1;
-		  * }*/
-		 else if (format[i+1] == '%')
-		 {
-			 i++;
-			 _putchar('%');
-			 count += 1;
-		 }
-	}
-	i++;
-	}
-	va_end (args);
-	return(count);
+		return (-1);
+
+	size = _strlen(format);
+	if (size <= 0)
+		return (0);
+
+	va_start(args, format);
+	size = handler(format, args);
+
+	_putchar(-1);
+	va_end(args);
+
+	return (size);
 }

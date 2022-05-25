@@ -1,50 +1,30 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef MAINH
+#define MAINH
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdarg.h>
-
-/* utils.c */
-int _strlen(const char *);
-int print(char *);
-char *int_to_string(long int, int);
-
-/* printf.c */
-int _printf(const char *, ...);
-
-/* handler.c */
-int handler(const char *, va_list);
-int percent_handler(const char *, va_list, int *);
-
-/* printers */
-int print_string(va_list);
-int print_char(va_list);
-int print_integer(va_list);
-/*int print_binary(va_list);
-int print_rot(va_list);
-int print_unsigned(va_list);
-int print_octal(va_list);
-int print_hexadecimal_low(va_list);
-int print_hexadecimal_upp(va_list);
-int print_pointer(va_list);
-int print_rev_string(va_list);*/
-
-/* _putchar.c */
-int _putchar(char);
-int buffer(char);
-
+int _putchar(char c);
+int _printf(const char *format, ...);
+int print_char(va_list c);
+int print_string(va_list s);
+/*int print_int(va_list i);
+int print_dec(va_list d);
+int print_rev(va_list r);
+int print_bin(va_list b);
+int print_unsig(va_list u);
+int print_octal(va_list o);
+int print_x(va_list x);
+int print_X(va_list X);
+int print_rot13(va_list R);*/
 /**
- * struct _format - Typedef struct
- *
- * @type: Format
- * @f: The function associated
- **/
-typedef struct _format
+  * struct code_format - Struct format
+  *
+  * @sc: The specifiers
+  * @f: The function associated
+  */
+typedef struct code_format
 {
-	char type;
+	char *sc;
 	int (*f)(va_list);
-} format;
+} code_f;
 
-
-#endif
+#endif 

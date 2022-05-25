@@ -1,6 +1,7 @@
 #ifndef MAINH
 #define MAINH
 
+#include <stddef.h>
 #include <stdarg.h>
 int _putchar(char c);
 int _printf(const char *format, ...);

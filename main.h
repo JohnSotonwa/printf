@@ -20,8 +20,8 @@ int percent_handler(const char *, va_list, int *);
 /* printers */
 int print_string(va_list);
 int print_char(va_list);
-/*int print_integer(va_list);
-int print_binary(va_list);
+int print_integer(va_list);
+/*int print_binary(va_list);
 int print_rot(va_list);
 int print_unsigned(va_list);
 int print_octal(va_list);
